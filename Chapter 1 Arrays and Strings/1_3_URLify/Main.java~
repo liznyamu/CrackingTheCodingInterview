@@ -36,7 +36,7 @@ public class Main {
         System.out.println("New Length : " + index);
         
         //str[index] = '\0';
-        str[index] = Character.MIN_VALUE; //empty character
+        str[index] = Character.MIN_VALUE;
 
         
 
