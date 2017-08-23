@@ -5,21 +5,23 @@
  */
 package pkg1_7_rotate_matrix;
 
-import java.util.Random;
+//import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
  * @author erza
  */
-public class TestMatrix {
+public class Question_Erza {
 
     public static void main(String[] args) {
-        
+
         System.out.println("Erza");
-        
+
+        int n = 5;
+
         //Create a nXn matrix
-        int[][] matrix = createMatrix(4, 4, 10, 100);
+        int[][] matrix = createMatrix(n, n, 10, 100);
 
         //print created matrix
         printMatrix(matrix);
@@ -103,8 +105,9 @@ public class TestMatrix {
 
     /**
      * Check solution explained on http://bit.ly/2iogwfV
+     *
      * @param matrix
-     * @return 
+     * @return
      */
     private static boolean rotate(int[][] matrix) {
         // Check if matrix is n*n AND n > 1 ie Square Matrix
@@ -114,31 +117,61 @@ public class TestMatrix {
 
         int n = matrix.length;
 
-        for (int layer = 0; layer < n / 2; layer++) {
-            int first = layer;
-            int last = n - 1 - first;
+        //for 2X2 
+        int first = 0;
+        int last = n - 1;
 
-            for (int i = first; i < last; i++) {
+        for (int level = 0; level < n / 2; level++) {
+//            System.out.println("Level : " + level);
+//            System.out.println("First : " + first);
+//            System.out.println("Last : " + last);
+            for (int round = 0; round < last - first; round++) {
+//                System.out.println("Round : " + round);
 
-                int offset = i - first;
-                //save top
-                int top = matrix[first][i];
+                //save Top                
+                int saveTop = matrix[level][first + round]; 
+                
+                // move Left to Top
+                matrix[level][first + round] = matrix[last - round][level];
+                
+                //move Bottom to Left
+                matrix[last - round][level] = matrix[last][last - round];
 
-                // move left top
-                matrix[first][i] = matrix[last - offset][i];
+                //move Right to Bottom
+                matrix[last][last - round] = matrix[first + round][last];
 
-                // move bottom to left
-                matrix[last - offset][i] = matrix[last][last - offset];
-
-                // move right to bottom
-                matrix[last][last - offset] = matrix[i][last];
-
-                // move top to right
-                matrix[i][last] = top;
-
+                //move savedTop to Right
+                matrix[first + round][last] = saveTop;
             }
+            
+            first ++;
+            last --;
         }
 
+//        for (int layer = 0; layer < n / 2; layer++) {
+//            int first = layer;
+//            int last = n - 1 - first;
+//
+//            for (int i = first; i < last; i++) {
+//
+//                int offset = i - first;
+//                //save top
+//                int top = matrix[first][i];
+//
+//                // move left top
+//                matrix[first][i] = matrix[last - offset][i];
+//
+//                // move bottom to left
+//                matrix[last - offset][i] = matrix[last][last - offset];
+//
+//                // move right to bottom
+//                matrix[last][last - offset] = matrix[i][last];
+//
+//                // move top to right
+//                matrix[i][last] = top;
+//
+//            }
+//        }
         return true;
     }
 
