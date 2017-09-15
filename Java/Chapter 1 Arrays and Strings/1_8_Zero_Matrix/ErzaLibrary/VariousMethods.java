@@ -78,5 +78,58 @@ public class VariousMethods {
             System.out.println();
         }
     }
+    
+    /**
+     * Clone matrix
+     * @param matrix 
+     * @return  
+     */
+    public static int[][] cloneMatrix(int[][] matrix){
+        
+        int [][] clone = new int[matrix.length][matrix[0].length];        
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++){
+                clone[i][j] = matrix[i][j];
+            }
+        }
+        
+        return clone;        
+    }
+    
+    
+    public static boolean matrixesAreEqual(int[][] matrixA, int[][] matrixB){
+        
+        //Check if matrixes have same dimensions nrow X ncol
+        if(matrixA.length != matrixB.length 
+                || matrixA[0].length != matrixB[0].length){
+            return false;
+        }
+        
+        for(int i = 0; i < matrixA.length; i++){
+            for(int j = 0; j < matrixA[0].length; j++){
+                if(matrixA[i][j] != matrixB[i][j]){
+                    return false;
+                }
+            }
+            
+        }        
+       
+        return true;
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

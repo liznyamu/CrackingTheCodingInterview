@@ -22,7 +22,7 @@ public class QuestionA_Erza {
      *
      * @param matrix
      */
-    private static void setZeros(int[][] matrix) {
+    public static void setZeros(int[][] matrix) {
 
         //Flags to identify row and col to nullify
         boolean[] row = new boolean[matrix.length];
