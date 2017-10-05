@@ -1,0 +1,34 @@
+Java Collections
+Website : Jenkov http://bit.ly/2hGy3Qu
+
+-------------------------------------------------------------------------------
+- classes and interfaces to handle collections of objects
+- works like Arrays -- but can change size dynamically + plus more advanced
+
+
+--------------------------------------------------------------------------------
+Collection Interface :
+- you don't instantiate a Collection directly but a subtype of Collection eg: List, Set, SortedSet, NavigableSet, Queue, Deque
+
+--------------------------------------------------------------------------------
+Jenkov - List 
+: List Implementations :-
+- ArrayList, LinkedList, Vector, Stack
+http://bit.ly/2x9fsym
+
+--------------------------------------------------------------------------------
+Jenkov - Set 
+- EnumSet, HashSet, LinkedHashSet, TreeSet
+http://bit.ly/2yR7BaT
+
+-> HashSet :
+	- backed up a HashMap
+	- It makes no guarantees about the sequence of the elements when you iterate them
+
+-> LinkedHashSet
+	- differs from HashSet by guaranteeing that the order of the elements during iteration is the same as the order they were inserted into Linked Hash Set
+	- re-inserting an element already in the LinkedHashSet does not change the order
+	
+-> 	TreeSet 
+	- guarantees order of elements when iterated BUT the order is the sorting order of elements ie the order in which the elements would be sorted if you used a Collections.sort() on a List or array containing these elemnets - order by nartural order implementing Comparable or specific Comparator implementation		
+

@@ -1,0 +1,5 @@
+Java Collections - List
+Website : http://tutorials.jenkov.com/java-collections/list.html
+------------------------------------- 
+- can be ordered / items Accessed (get)/ Iterable (looped thru)
+- most common of the List interface ArrayList, Linked List, Stack, Vector
