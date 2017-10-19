@@ -33,9 +33,6 @@ public class QuestionB_erza {
                     runner = runner.next;
                 }
             }
-            
-            //set next current to current.next
-            current = current.next;
         }
         
         //set head to runner without duplicates
