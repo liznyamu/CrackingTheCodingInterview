@@ -61,18 +61,27 @@ public class QuestionB_erza {
 	}
 
 	public static void main(String[] args) {
-		// TODO -- recreate the LinkedList created by gayle
 
-		int[] arrayValues = { 3, 5, 8, 5, 10, 2, 1 };
-		int partValue = 5;
-
-		LinkedListNode head = new LinkedListNode(arrayValues[0], null, null);
-		LinkedListNode current = head;
-
-		for (int i = 1; i < arrayValues.length; i++) {
-			current = new LinkedListNode(arrayValues[i], null, current);
+		//create an array of LinkedListNode(s)
+		int length = 20;
+		LinkedListNode[] nodes = new LinkedListNode[length];
+		
+		//assign data to nodes
+		for(int i= 0; i < length; i++) {
+			nodes[i] = new LinkedListNode( i >= length / 2 ? length - i - 1 : i , null, null);
 		}
-
+		
+		for(int i = 0; i < length; i++) {
+			if(i < length - 1) {
+				nodes[i].setNext(nodes[i + 1]);
+			}
+			if(i > 0) {
+				nodes[i].setPrev(nodes[i - 1]);
+			}
+		}
+		
+		LinkedListNode head = nodes[0];
+		int partValue = 7;
 		System.out.println(head.printForward());
 
 		LinkedListNode partedList = partition(head, partValue);
